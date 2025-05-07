@@ -75,12 +75,12 @@ int main(){
     /*
         Exibir as Propriedades da Carta 2.
     */
-   printf("Carta 2: \n"); //Informar a Carta a ter as propriedades informadas.
-   printf("Estado: %c\n", letraestado2); //Exibir o Estado da Carta 2.
-   printf("Código: %s\n", codigocarta2); //Exibir o Código da Carta 2.
-   printf("Nome da Cidade: %s\n", nomecidade2); //Exibir o Nome da Cidade da Carta 2.
-   printf("População: %d\n", cidadepopulacao2); //Exibir a População da Cidade da Carta 2.
-   printf("Área: %f km²\n", cidadearea2); //Exibir a Área em km² da Cidade da Carta 2.
-   printf("PIB: %f bilhões de reais\n", cidadepib2); //Exibir o PIB da Cidade da Carta 2.
-   printf("Número de Pontos Turísticos: %d\n\n", cidadepontosturisticos2); //Exibir o Número de Pontos Turísticos da Cidade da Carta 2.
+    printf("Carta 2: \n"); //Informar a Carta a ter as propriedades informadas.
+    printf("Estado: %c\n", letraestado2); //Exibir o Estado da Carta 2.
+    printf("Código: %s\n", codigocarta2); //Exibir o Código da Carta 2.
+    printf("Nome da Cidade: %s\n", nomecidade2); //Exibir o Nome da Cidade da Carta 2.
+    printf("População: %d\n", cidadepopulacao2); //Exibir a População da Cidade da Carta 2.
+    printf("Área: %f km²\n", cidadearea2); //Exibir a Área em km² da Cidade da Carta 2.
+    printf("PIB: %f bilhões de reais\n", cidadepib2); //Exibir o PIB da Cidade da Carta 2.
+    printf("Número de Pontos Turísticos: %d\n\n", cidadepontosturisticos2); //Exibir o Número de Pontos Turísticos da Cidade da Carta 2.
 }
