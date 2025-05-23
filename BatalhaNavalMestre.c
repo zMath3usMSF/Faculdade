@@ -113,46 +113,42 @@ int main(){
             }
         }
     }
+
     /*
-        Exibição do Tabuleiro no Terminal.
+        Marcar a Habilidade da Cruz no Tabuleiro.
     */
-    if(!erro){
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                printf("%d ", tabuleiro[i][j]);
-            }
-            printf("\n");
-        }
-    }
-
-    printf("\n");
-    int crossCount = 4;
-    int crossBaseX = 1, crossBaseY = 5;
+    int crossScale = 4; //Tamanho da Cruz.
+    int crossBaseX = 1, crossBaseY = 5; //Coordenadas X e Y da Cruz no Tabuleiro.
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
-            if((i == crossBaseX + 2 && j >= crossBaseY - 2 && j <= crossBaseY - 2 + crossCount) || (j == crossBaseY && i >= crossBaseX && i <= crossBaseX + crossCount)){
+            if((i == crossBaseX + crossScale / 2 && j >= crossBaseY - crossScale / 2 && j <= crossBaseY - crossScale / 2 + crossScale) || 
+               (j == crossBaseY && i >= crossBaseX && i <= crossBaseX + crossScale)){
                 tabuleiro[i][j] = 1;
             }
         }
-        printf("\n");
     }
 
-    int triangleCount = 0;
-    int triangleBaseX = 2, triangleBaseY = 7;
-    printf("\n");
+    /*
+        Marcar a Habilidade do Triângulo no Tabuleiro.
+    */
+    int triangleCount = 0; //Contador do Triângulo.
+    int triangleScale = 3; //Tamanho do Triângulo.
+    int triangleBaseX = 2, triangleBaseY = 7; //Coordenadas X e Y do Triângulo no Tabuleiro.
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
-            if((j >= triangleBaseX - triangleCount) && (j <= triangleBaseX + triangleCount) && (i >= triangleBaseY)){
+            if((j >= triangleBaseX - triangleCount) && (j <= triangleBaseX + triangleCount) && (i >= triangleBaseY && i <= triangleBaseY + triangleScale)){
                 tabuleiro[i][j] = 1;
             }
         }
-        if(i >= triangleBaseY) triangleCount++;
-        printf("\n");
+        if(i >= triangleBaseY && i <= triangleBaseY + triangleScale) triangleCount++;
     }
 
-    int octaedroCount = 0;
-    int octaedroBaseX = 7, octaedroBaseY = 5;
-    printf("\n");
+    /*
+        Marcar a Habilidade de Octaedro no Tabuleiro.
+    */
+    int octaedroCount = 0; //Contador do Octaedro.
+    int octaedroScale = 2; //Tamanho do Octaedro.
+    int octaedroBaseX = 7, octaedroBaseY = 5; //Coordenadas X e Y do Octaedro no Tabuleiro.
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
             if(((j >= octaedroBaseX - octaedroCount)) && (j <= octaedroBaseX + octaedroCount) && (i >= octaedroBaseY)){
@@ -160,16 +156,17 @@ int main(){
             }
         }
         if(i >= octaedroBaseY){
-            if(i < octaedroBaseY + 2){
+            if(i < octaedroBaseY + octaedroScale){
                 octaedroCount++;
             }else{
                 octaedroCount--;
             }
         }
-        printf("\n");
     }
 
-    printf("\n");
+    /*
+        Exibir o Tabuleiro no Terminal.
+    */
     for(int i = 0; i < 10; i++){
         for(int j = 0; j < 10; j++){
             printf("%d ", tabuleiro[i][j]);
