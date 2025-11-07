@@ -1,0 +1,11 @@
+Pseudocódigo: É uma forma de representação do código sem usar uma linguagem 
+de programação verdadeira, e sim usando a nossa linguagem normal, tendo fi-
+nalidade de deixar a lógica do código simples e entendivel para qualquer pes-
+soa 
+Ferramentas: PSeInt e Portugol.
+
+Fluxograma: Como o Pseudocódigo, é uma forma de representação do código sem
+usar uma linguagem de programação, mas, dessa vez usamos representação gráfi-
+ca do código, usando formas padronizadas em fluxogramas deixando também mais 
+fácil de entender.
+Ferramentas: Bizagi, Microsoft Word, Microsoft PowerPoint.
