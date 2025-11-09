@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exemplo de Tags de Formulário</title>
+        <style>
+            body{font-family: 'Poppins', sans-serif; text-align: center;}
+        </style>
+    </head>
+    <body>
+        <form action="send.php" method="post">
+            <fieldset>
+                <legend>Dados Gerais</legend>
+                <label for="nome">Nome:</label>
+                <input type="text" minlength="3" id="nome"/>
+
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="text" id="data_nascimento" />
+
+                <label for="cpf">CPF:</label>
+                <input type="cpf" minlength="11" id="cpf" />
+            </fieldset>
+            <fieldset>
+                <legend>Endereço</legend>
+                
+                <label for="tipo_endereco">Tipo:</label>
+                <select id="tipo_endereco">
+                    <option value="">Selecione</option>
+                    <option value="">Rua</option>
+                    <option value="">Estrada</option>
+                    <option value="">Rodovia</option>
+                    <option value="">Outros</option>
+                </select>
+
+                <label for="logradouro_endereco">Logradouro</label>
+                <input type="text" id="logradouro_endereco" />
+
+                <label for="numero_endereco">Número:</label>
+                <input type="text" id="numero_endereco" />
+
+                <label for="complemento_endereco">Complemento:</label>
+                <input type="text" id="complemento_endereco" />
+            </fieldset>
+            <fieldset>
+                <legend>Fale Conosco</legend>
+
+                <label for="msg">Mensagem:</label>
+                <textarea type="text" id="msg"></textarea>
+            </fieldset>
+
+            <fieldset>
+                <button type="submit">Enviar sua mensagem</button>
+                <button type="reset">Limpar o Formulário</button>
+            </fieldset>
+        </form>
+        <!-- Formulário
+         <form>: Indica o ínicio e o fim do formulário.
+            Principais:
+            action: Define qual é a URL que os dados serão enviados/recebidos, ex: action:enviar.php.
+            method: Define se o formulário enviará ou receberá dados, ex: method:post.
+            onsubmit: Define a função JavaScript que será executada antes do formulário ser enviado.
+            onreset: Define a função JavaScript que será executada antes do formulário ser resetado.
+            name: Define o nome do formulário, ex: name:Formulário Geral.
+            id: Define o ID do formulário (Caso queira acessar/modificar usando CSS ou JavaScript), ex: id=form_general.
+            Secundárias:
+            enctype: Define o tipo de codificação dos dados ao enviá-los (necessário para upload de arquivos).
+            target: Define onde o Link será aberto, com o valor "_blank" faz com que seja aberto em outra aba, com "_self" na mesma aba.
+            autocomplete: Define se o formulário usará autocomplentar, ex: autocomplente:on
+            novalidate: Define se o formulário NÃO deve ser válidado antes do envio.
+            accept-charset: Define a codificação de caracteres, ex: accept-charset:UTF-8. 
+            rel: Define a relação entre a sua página e a página do Link, "noopener" impede que o site do Link tenha acesso.
+
+         <fieldset>: Adiciona um novo Campo no Formulário.
+            Secundárias:
+            disabled: Desabilita a modificação de todos os elementos que fazem parte desse Campo, ex: disabled.
+            form: Associa o Campo a um formulário (usando seu id), caso ele não estiver dentro de um, ex: form:form_general.
+            name: Define o nome do Campo, ex: name:Campo Geral.
+            id: Define o ID do Campo (Caso queira acessar/modificar usando CSS ou JavaScript), ex: id=fieldset_general.
+            class: Define a Classe do Campo (Caso queira modificar seu estilo usando CCS).
+
+         <legend>: Define o "Título" da Legenda (Ela deve estar obrigatoriamente dentro de um Campo <fieldset>), ex: <legend>Dados Gerais</legend>.
+            Principais:
+            id: Define o ID da Legenda (Caso queira acessar/modificar usando CSS ou JavaScript), ex: id=legend_general.
+            class: Define a Classe da Legenda (Caso queira modificar seu estilo usando CCS).
+            align: Define o alinhamento como center, left ou right, ex: align="center" (Obsoleta, CSS é mais usado para essa função).
+
+         <label>: Define o "Rótulo" a um objeto.
+            Principais:
+            for: Define a qual objeto o Rótulo pertence (usando o id do objeto), ex: for:name
+            id: Define o ID do Rótulo (Caso queira acessar/modificar usando CSS ou JavaScript), ex: id=label_general.
+            class: Define a Classe do Rótulo (Caso queira modificar seu estilo usando CCS).
+            Secundárias:
+            style: Aplica estilos CSS diretamente na tag, ex: style="color: blue;".
+            title: Define a mensagem que será exibida quando passar o cursor do mouse em cima.
+            hidden: Oculta o elemento da página (sem removê-lo do código).
+            lang: Define o idioma do conteúdo do Rótulo, ex: lang="pt-BR".
+            dir: Define a direção do texto (ltr = esquerda p/ direita, rtl = direita p/ esquerda), ex: dir="ltr".
+            tabindex: Define a ordem de navegação com a tecla Tab, ex: tabindex="1".
+            acesskey: Define uma tecla de atalho para focar o elemento, ex: accesskey="n".
+            draggable: Define se o elemento pode ser arrastado, ex: draggable="true".
+            contenteditable: Permite editar o conteúdo do elemento diretamente, ex: contenteditable="true".
+            spellcheck: Ativa/desativa a verificação ortográfica, ex: spellcheck="false".
+         
+         <input>: Adiciona um controle de Entrada para receber dados no formulário.
+            Principais:
+            type: Define o tipo da Entrada (text, number, password, email, button, etc.), ex: type="text".
+            name: Define o nome da Entrada, ex: name:Nome.
+            id: Define o ID da Entrada (Caso queira acessar/modificar usando CSS ou JavaScript), ex: id=name.
+            value: Define o valor inicial do campo (ou o valor enviado), ex: value="Zé".
+            class: Define a Classe da Entrada (Caso queira modificar seu estilo usando CCS).
+            Secundárias:
+            placeholder: Mostra um texto de exemplo dentro do campo, ex: placeholder="Digite seu nome".
+            required: Torna o campo obrigatório antes do envio.
+            readonly: Impede o usuário de alterar o valor (somente leitura).
+            disabled: Desativa o campo (não pode ser editado nem enviado).
+            minlength / maxlength: Limita o número minímo/máximo de caracteres, ex: minlength="3" maxlength="10".
+            min / max: Define valor mínimo e máximo (para números e datas), ex: min="1" max="10".
+            step: Define o intervalo de valores possíveis (para números/datas), ex: step="5".
+            size: Define o tamanho visual (em caracteres), ex: size="30".
+            autocomplete: Liga ou desliga o preenchimento automático do navegador, ex: autocomplete="off".
+            autofocus: Faz o campo receber foco automático ao carregar a página.
+            pattern: Define uma expressão regular para validar o conteúdo, ex: pattern="[0-9]{5}-[0-9]{3}".
+            list: Liga o campo a um <datalist> (sugestões automáticas), ex: list="cidades".
+            multiple: Permite selecionar/enviar vários valores (em file ou email).
+            accept: Define os tipos de arquivo aceitos (type="file"), ex: accept=".jpg,.png".
+            checked: Define se a opção já vem marcada (checkbox ou radio).
+            src: Define a imagem do botão (type="image"), ex: src="botao.png".
+            alt: Texto alternativo para type="image", ex: alt="Enviar".
+            form: Associa o campo a um <form> específico (mesmo fora dele), ex: form="form1".
+            -->
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exemplo Tags de Tabelas.</title>
+        <style>
+            body {font-family:  "Poppins", sans-serif; text-align: center;}
+        </style>
+    </head>
+    <body>
+        <h2>Boletim</h2>
+        <table width="100%" border="1">
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Disciplina</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="5">Carlos dos Santos Carvalho</td>
+                    <td>C</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>C#</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>PHP</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>10</td>
+                </tr>
+                <th>Situação</th>
+                <th colspan="2">Aprovado</th>
+                <tr>
+                    <td rowspan="5">Ana Pinheiro da Silva</td>
+                    <td>C</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>C#</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>PHP</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>10</td>
+                </tr>
+                <th>Situação</th>
+                <th colspan="2">Aprovado</th>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3">Aluno com Melhor Nota: Ana Pinheiro da Silva</th>
+                </tr>
+            </tfoot>
+        </table>
+        <!-- Tabela, usada quando deseja adicionar uma tabela a sua página.
+         <table>: Indicia o ínicio e o fim da tabela.
+         <thead>: Indica o ínicio e o fim do Cabeçalho da Tabela, ele é usado para armazenar os títulos das colunas.
+         <tbody>: Indica o ínicio e o fim do Corpo da Tabela, ele é usado para armazenar os dados/conteúdo principal da tabela em si.
+         <tfoot>: Indica o ínicio e o fim do Rodapé da Tabela, ele é usado para armazenar informações finais da tabela, como observações
+         ou totais.
+         <tr>: Adiciona uma nova linha na Tabela.
+         <th>: Adiciona uma nova coluna da cabeçalho/título na Tabela.
+         <td>: Adiciona uma nova coluna na Tabela.
+         colspan: Indica quantas colunas aquela cécula vai ocupar.
+         rowspan: Indica quantas linhas aquela célula vai ocupar.
+        -->
+    </body>
+</html>

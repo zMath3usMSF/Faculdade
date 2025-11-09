@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exemplo de Estilização por Atributo.</title>
+        <link rel="stylesheet" href="EstilizandoPorAtributo.css">
+        <!-- Isso fará com que APENAS os elementos do tipo INPUT que tenham o atributo REQUIRED (Obrigatório) tenham as suas cores de fundo alteradas. -->
+    </head>
+    <body>
+        <form action="test.php" method="post">
+            <fieldset>
+                <legend>Dados Pessoais:</legend>
+                <label for="nome">Nome</label>
+                <input required type="text" minlength="3" id="nome">
+                
+                <label for="idade">Idade</label>
+                <input required type="number" min="18" max="24">
+
+                <label for="comida_preferida">Comida Preferida</label>
+                <input type="text">
+
+                <label for="filme_preferido">Filme Preferido</label>
+                <input type="text">
+            </fieldset>
+            <field>
+                <button type="submit">Enviar</button>
+                <button type="reset">Resetar</button>
+            </field>
+        </form>
+    </body>
+</html>

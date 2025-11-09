@@ -1,0 +1,27 @@
+body 
+    {
+        font-family: 'Poppins', sans-serif; 
+        text-align: center;
+    }
+    
+.certa, .errada 
+    {
+        border: 2px solid; 
+        outline: 2px solid;
+        padding: 5px;
+        margin: 5px;
+        display: inline-block;
+        outline-color: black;
+    }
+
+.certa
+    {
+        border-color: green;
+        background-color: lightgreen;
+    }
+
+.errada 
+    {
+        border-color: red;
+        background-color: lightcoral;
+    }
