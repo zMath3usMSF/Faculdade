@@ -1,0 +1,11 @@
+#main{
+    margin: auto;
+    width: 512px;
+}
+#voltar{
+    position: fixed;
+    top: 0px;
+    padding: 20px;
+    background-color: lightgray;
+    border: solid black;
+}

@@ -1,0 +1,14 @@
+body{text-align: center;}
+div{
+    text-align: center;
+    align-content: center;
+    width: 512px; height: 512px;
+    background-color: lightblue;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 15px;
+    margin-right: 20px;
+    padding: 50px;
+    border: 10px solid black;
+}
+div:hover{background-color: #000; color: white; transition: 0.3s;}

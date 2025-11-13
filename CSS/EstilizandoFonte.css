@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "PopFurry";
+    src: url("Fontes/FOT-PopFuryStd-B.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+p {font-family: PopFurry; font-size: 3.0em;}

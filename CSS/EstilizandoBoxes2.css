@@ -1,0 +1,19 @@
+body {
+    font-weight: bold;
+    font-size: large;
+}
+
+#Box1 {
+    margin: auto;
+    width: 400px;
+    background-color: lightyellow;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#Box2 {
+    background-color: lightsalmon;
+    border: 1px solid black;
+    overflow: auto;
+    height: 400px;
+}
