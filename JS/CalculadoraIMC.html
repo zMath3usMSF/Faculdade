@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt=BR">
-<html>
+<html lang="pt-BR">
     <head>
         <meta charset="utf-8">
-        <title>Exemplo de Calculadora.</title>
+        <title>Exemplo de Calculadora de IMC.</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <script src="Calculadora.js"></script>
+        <script src="CalculadoraIMC.js"></script>
     </head>
     <body class="container">
-        <h2>Calculadora</h2>
         <form class="form m-2">
-            <label class="form-label">Valor A</label>
+            <h2>Calculadora de IMC</h2>
+            <label class="form-label">Peso (Kg)</label>
             <input class="form-control" type="number" id="v1"/>
-            <label class="form-label">Valor B</label>
+            <label class="form-label">Altura (m)</label>
             <input class="form-control" type="number" id="v2"/>
-            <label class="form-label">Operação</label>
-            <select class="form-select" id="oper">
-                <option>Adição</option>
-                <option>Subtração</option>
-                <option>Multiplicação</option>
-                <option>Divisão</option>
-            </select>
             <a class="btn btn-primary m-2" onclick="executar()">Executar</a>
             <div id="resp"></div>
         </form>
