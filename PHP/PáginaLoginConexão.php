@@ -2,16 +2,12 @@
 
 define('HOST', 'localhost');
 define('PORT', '5432');
-define('DBNAME', 'test_02');
+define('DBNAME', 'postgres');
 define('USER', 'postgres');
 define('PASSWORD', '1234');
 
 try{
-    $dsn = new PDO("pgsql:host=" . HOST . 
-                    ";port=" . PORT .
-                    ";dbname=" . DBNAME,
-                    USER,
-                    PASSWORD);
+    $dsn = new PDO("pgsql:host=". HOST . ";port=".PORT.";dbname=" . DBNAME .";user=" . USER . ";password=" . PASSWORD);
 
                     echo "Conexão com o banco de dados foi estabelecida com sucesso!<br>";
 } catch (PDOException $e){
