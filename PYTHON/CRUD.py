@@ -13,10 +13,10 @@ def ReadPerson():
     searchName = input("Enter the name of the person you want to search for: ")
     for i in range(len(name)):
         if name[i].lower() == searchName.lower():
-            print("Name: ", name[i])
-            print("Age: ", age[i])
-            print("Weight: ", weight[i])
-            print("Height: ", height[i])
+            print(f"Name: {name[i]}")
+            print(f"Age: {age[i]}")
+            print(f"Weight: {weight[i]}")
+            print(f"Height: {height[i]}")
             return
     print("The person called '",searchName,"' cannot be found")
 
@@ -27,10 +27,10 @@ def UpdatePerson():
             searchName = i
             break
     else:
-        print("The person called '",searchName,"' cannot be found")
+        print(f"The person called '{searchName}' cannot be found")
         return
 
-    print("What do you want to update about '",name[searchName],"'?")
+    print(f"What do you want to update about '{name[searchName]}'?")
     print("1 - Name")
     print("2 - Age")
     print("3 - Weight")
@@ -40,19 +40,19 @@ def UpdatePerson():
         case "1":
             oldname = name[searchName]
             name[searchName] = input("Enter the new name: ")
-            print("The name was updated from '",oldname,"' to '",name[searchName],"'.")
+            print(f"The name was updated from '{oldname}' to '{name[searchName]}'.")
         case "2":
             oldage = age[searchName]
             age[searchName] = int(input("Enter the new age: "))
-            print("The age was updated from '",oldage,"' to '",age[searchName],"'.")
+            print(f"The age was updated from '{oldage}' to '{age[searchName]}'.")
         case "3":
             oldweight = weight[searchName]
             weight[searchName] = float(input("Enter the new weight: "))
-            print("The weight was updated from '",oldweight,"' to '",weight[searchName],"'.")
+            print(f"The weight was updated from '{oldweight}' to '{weight[searchName]}'.")
         case "4":
             oldheight = height[searchName]
             height[searchName] = float(input("Enter the new height: "))
-            print("The height was updated from '",oldheight,"' to '",height[searchName],"'.")
+            print(f"The height was updated from '{oldheight}' to '{height[searchName]}'.")
         case _:
             print("Invalid Option")
 
@@ -60,12 +60,12 @@ def DeletePerson():
     searchName = input("Enter the name of the person you want to delete: ")
     for i in range(len(name)):
         if name[i].lower() == searchName.lower():
-            print("The person named '",name.pop(i),"' has been deleted.")
+            print(f"The person named '{name.pop(i)}' has been deleted.")
             del age[i]
             del weight[i]
             del height[i]
             return
-    print("The person called '",searchName,"' cannot be found")
+    print(f"The person called '{searchName}' cannot be found")
 
 def Main():
     print("Choose the above options: ")
