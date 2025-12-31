@@ -38,7 +38,7 @@ def validar_cpf(cpf):
     return True
 
 # Testando a função
-cpf = "123.456.789-09"
+cpf = "123.456.789-10"
 if validar_cpf(cpf):
     print(f"O CPF {cpf} é válido.")
 else:
