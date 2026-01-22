@@ -86,7 +86,7 @@ void removerListaEstatica(ListaEstatica *lista, const char* texto){
     
     if(pos == -1){
         printf("Erro: Texto \"%s\" nao encontrado na lista.\n", texto);
-        return; // CORRIGIDO: Adicionado return
+        return;
     }
     
     for(i = pos; i < lista->quantidade - 1; i++){
@@ -143,7 +143,7 @@ void removerListaEncadeada(ListaEncadeada *lista, const char* texto){
     
     if(atual == NULL){
         printf("Erro: Texto \"%s\" nao encontrado na lista.\n", texto);
-        return; // CORRIGIDO: Adicionado return
+        return;
     }
     
     if(anterior == NULL){
@@ -198,13 +198,13 @@ void menuListaEstatica(){
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-        getchar(); // Limpa o buffer
+        getchar();
         
         switch(opcao){
             case 1:
                 printf("Digite o texto a inserir: ");
                 fgets(texto, MAX_STR_LEN, stdin);
-                texto[strcspn(texto, "\n")] = '\0'; // Remove newline
+                texto[strcspn(texto, "\n")] = '\0';
                 inserirListaEstatica(&lista, texto);
                 break;
             case 2:
@@ -240,7 +240,7 @@ void menuListaEncadeada(){
         printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
-        getchar(); // Limpa o buffer
+        getchar();
         
         switch(opcao){
             case 1:

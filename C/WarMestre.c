@@ -146,6 +146,7 @@ void exibirMenuAcoes() {
     
     printf("\n--- MENU DE ACOES ---\n");
     printf("1 - Atacar\n");
+    printf("2 - Verificar Missao\n");
     printf("0 - Sair\n");
     printf("Escolha sua acao: ");
     scanf("%d", &opcao);
@@ -154,6 +155,11 @@ void exibirMenuAcoes() {
     switch(opcao) {
         case 1:
             solicitarTerritorioDefensor();
+            break;
+        case 2:
+            printf("Voce ainda nao cumpriu sua missao. Continue a lutar!\n");
+            printf("\nPressione ENTER para continuar...");
+            getchar();
             break;
         case 0:
             finalizou = 1;
@@ -263,8 +269,6 @@ void verificarMissao() {
     if(missaoConcluida) {
         printf("\n*** PARABENS! Voce completou a sua missao! ***\n");
         finalizou = 1;
-    } else {
-        printf("Continue a lutar!\n");
     }
 }
 
@@ -278,17 +282,17 @@ void adicionarTerritorios() {
     
     strcpy(territorios[1].nome, "Asia");
     strcpy(territorios[1].cor, "Vermelho");
-    territorios[1].tropas = 1;
+    territorios[1].tropas = 4;
     
     strcpy(territorios[2].nome, "Europa");
     strcpy(territorios[2].cor, "Verde");
-    territorios[2].tropas = 1;
+    territorios[2].tropas = 4;
     
     strcpy(territorios[3].nome, "Africa");
     strcpy(territorios[3].cor, "Amarelo");
-    territorios[3].tropas = 1;
+    territorios[3].tropas = 2;
     
     strcpy(territorios[4].nome, "Oceania");
     strcpy(territorios[4].cor, "Branco");
-    territorios[4].tropas = 1;
+    territorios[4].tropas = 3;
 }
