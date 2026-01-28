@@ -6,7 +6,9 @@
 // Indica se o programa foi finalizado
 int finalizado = 0;
 
-clock_t inicio, fim;
+// Declara as Variáveis de Inicio e Fim para guardar o Tempo de Execução da CPU
+clock_t tInicio, tFim;
+// Declara a Variável para guardar o Valor Final do Tempo de Execução da CPU
 double tempo;
 
 // Indica o número maximo de itens na mochila
@@ -37,12 +39,16 @@ void adicionarComponente();
 // Função que Remove Componente
 void removerComponente(Mochila* mochila, const char* nome);
 
+// Função de Exibir o Menu de Escolha do Tipo de Ordenação de Componentes
 void organizarComponentesMenu();
 
+// Função de Ordenar a Mochila por Nome usando Bubble Sort
 void bubbleSortNome();
 
+// Função de Ordenar a Mochila por Tipo usando Insertion Sort
 void insertionSortTipo();
 
+// Função de Ordenar a Mochila por Prioridade usando Seleciton Sort
 void selectionSortPrioridade();
 
 // Função que Lista os Itens
@@ -128,6 +134,7 @@ void adicionarComponente(){
     listarComponentes(&mochila);
 }
 
+// Função de Exibir o Menu de Escolha do Tipo de Ordenação de Componentes
 void organizarComponentesMenu(){
     int opcao = 0;
     if(mochila.quantidadeMochila < 2){
@@ -162,8 +169,9 @@ void organizarComponentesMenu(){
     }
 }
 
+// Função de Ordenar a Mochila por Nome usando Bubble Sort
 void bubbleSortNome(){
-    inicio = clock();
+    tInicio = clock();
     for(int i = 0; i < mochila.quantidadeMochila; i++){
         for(int j = 0; j < mochila.quantidadeMochila - i - 1; j++){
             if(strcmp(mochila.itens[j].nome, mochila.itens[j + 1].nome) > 0){
@@ -175,15 +183,17 @@ void bubbleSortNome(){
             }
         }
     }
-    fim = clock();
-    tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
+    tFim = clock();
+    tempo = (double)(tFim - tInicio) / CLOCKS_PER_SEC;
     mochila.ordenado = 1;
     printf("Mochila organizada por NOME");
-    printf("Tempo de CPU da Ordenacao de Nomes usando Bubble Sort: %f segundos\n", tempo);
+    printf("Tempo de CPU na Ordenacao por Nome usando Bubble Sort: %f segundos\n", tempo);
     listarComponentes(&mochila);
 }
 
+// Função de Ordenar a Mochila por Tipo usando Insertion Sort
 void insertionSortTipo(){
+    tInicio = clock();
     for(int i = 1; i < mochila.quantidadeMochila; i++){
         struct Componente chave = mochila.itens[i];
         int j = i - 1;
@@ -195,12 +205,16 @@ void insertionSortTipo(){
     
         mochila.itens[j + 1] = chave;
     }
-    mochila.ordenado = 1;
+    tFim = clock();
+    tempo = (double)(tFim - tInicio) / CLOCKS_PER_SEC;
     printf("Mochila organizada por TIPO");
+    printf("Tempo de CPU na Ordenacao por Tipo usando Insertion Sort: %f segundos\n", tempo);
     listarComponentes(&mochila);
 }
 
+// Função de Ordenar a Mochila por Prioridade usando Seleciton Sort
 void selectionSortPrioridade(){
+    tInicio = clock();
     for(int i = 0; i < mochila.quantidadeMochila - 1; i++){
         int indiceMenor = i;
 
@@ -218,14 +232,17 @@ void selectionSortPrioridade(){
             *b = temp;
         }
     }
-    mochila.ordenado = 1;
+    tFim = clock();
+    tempo = (double)(tFim - tInicio) / CLOCKS_PER_SEC;
     printf("Mochila organizada por PRIORIDADE");
+    printf("Tempo de CPU na Ordenacao por Prioridade usando Selection Sort: %f segundos\n", tempo);
     listarComponentes(&mochila);
 }
 
 // Função de Remover Componente, ele pede o nome do Componente a ser removido
 // É necessário que a Mochila tenha pelo menos algum Componente adicionado
 void removerComponente(Mochila* mochila, const char* nome){
+    tInicio = clock();
     int i, pos = -1;
     
     for(i = 0; i < mochila->quantidadeMochila; i++){
@@ -248,8 +265,12 @@ void removerComponente(Mochila* mochila, const char* nome){
         mochila->itens[i].quantidadeComponente = mochila->itens[i + 1].quantidadeComponente;
         mochila->itens[i].prioridade = mochila->itens[i + 1].prioridade;
     }
+    tFim = clock();
+    tempo = (double)(tFim - tInicio) / CLOCKS_PER_SEC;
     mochila->quantidadeMochila--;
+    mochila->ordenado = 0;
     printf("Componente \"%s\" removido com sucesso.\n", nome);
+    printf("Tempo de CPU na Remocao de Componente: %f segundos\n", tempo);
     printf("\nPressione ENTER para continuar...");
     getchar();
 }
@@ -257,6 +278,7 @@ void removerComponente(Mochila* mochila, const char* nome){
 // Função que Lista todos os Itens da Mochila
 // É necessário que a Mochila tenha pelo menos algum Componente adicionado
 void listarComponentes(const Mochila *mochila){
+    tInicio = clock();
     if(mochila->quantidadeMochila == 0){
         printf("A mochila esta vazia.\n");
         printf("\nPressione ENTER para continuar...");
@@ -275,19 +297,25 @@ void listarComponentes(const Mochila *mochila){
                mochila->itens[i].prioridade);
     }
     printf("------------------------------------------------------------------------\n");
+    tFim = clock();
+    tempo = (double)(tFim - tInicio) / CLOCKS_PER_SEC;
+    printf("Tempo de CPU na Listagem de Componentes: %f segundos\n", tempo);
     printf("\nPressione ENTER para continuar...");
     getchar();
 }
 
 // Função de Buscar Componente, ele pede o nome do Componente a ser buscado
 // É necessário que a Mochila tenha pelo menos algum Componente adicionado
+// e também que a Mochila esteja ordenada por NOME
 void buscarComponente(Mochila* mochila){
-    if(mochila->ordenado == 0 && mochila->itens != 0){
+    tInicio = clock();
+    if(mochila->ordenado == 0 && mochila->quantidadeMochila != 0){
         printf("ALERTA: A busca binaria requer que a mochila esteja ordenada por NOME.\n");
         printf("Use a Opcao 4 para organizar a mochila primeiro.\n");
 
         printf("\nPressione ENTER para continuar...");
         getchar();
+        return;
     }else{
         printf("--- Busca Binaria por Componente-Chave ---\n");
         printf("Digite o Nome do Componente que deseja buscar: ");
@@ -310,7 +338,7 @@ void buscarComponente(Mochila* mochila){
 
             if(strcmp(mochila->itens[meio].nome, nome) == 0){
                 printf("\n--- Componente-Chave Encontrado! ---\n");
-                printf("Nome: %s, Tipo: %s, Qtd: %d, Prio: %d",
+                printf("Nome: %s, Tipo: %s, Qtd: %d, Prio: %d\n",
                         mochila->itens[meio].nome,
                         mochila->itens[meio].tipo,
                         mochila->itens[meio].quantidadeComponente,
@@ -329,7 +357,9 @@ void buscarComponente(Mochila* mochila){
         if(encontrado == 0){
             printf("Componente-Chave '%s' NAO foi encontrado na mochila.\n", nome);
         }
-
+        fim = clock();
+        tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
+        printf("Tempo de CPU na Busca de Componente: %f segundos\n", tempo);
         printf("\nPressione ENTER para continuar...");
         getchar();
     }
