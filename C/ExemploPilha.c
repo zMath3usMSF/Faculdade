@@ -6,10 +6,10 @@ typedef struct{
     int idade;
 }Pessoa;
 
-#define MAX 5
+#define MAX_PILHA 5
 
 typedef struct{
-    Pessoa pessoas[MAX];
+    Pessoa pessoas[MAX_PILHA];
     int topo;
 }Pilha;
 
@@ -22,7 +22,7 @@ int pilhaVazia(Pilha *pilha){
 }
 
 int pilhaCheia(Pilha *pilha){
-    return pilha->topo == MAX - 1;
+    return pilha->topo == MAX_PILHA - 1;
 }
 
 void push(Pilha *pilha, Pessoa pessoaInserir){
@@ -35,12 +35,12 @@ void push(Pilha *pilha, Pessoa pessoaInserir){
     pilha->pessoas[pilha->topo] = pessoaInserir;
 }
 
-void pop(Pilha *pilha, Pessoa *pessoaInserir){
+void pop(Pilha *pilha, Pessoa *pessoaRemover){
     if(pilhaVazia(pilha)){
         printf("Pilha vazia. Nao e possivel remover.\n");
     }
 
-    *pessoaInserir = pilha->pessoas[pilha->topo];
+    *pessoaRemover = pilha->pessoas[pilha->topo];
     pilha->topo--;
 }
 
