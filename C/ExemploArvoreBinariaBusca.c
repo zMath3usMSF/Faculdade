@@ -3,41 +3,41 @@
 #include <string.h>
 #include <stdbool.h>
 
-typedef struct NoBST{
-    char valor[50];
-    struct NoBST* esquerda;
-    struct NoBST* direita;
-}NoBST;
+typedef struct ArvorePistas{
+    char pista[50];
+    struct ArvorePistas* esquerda;
+    struct ArvorePistas* direita;
+}ArvorePistas;
 
-NoBST* criarNoBST(const char* valor){
-    NoBST* novo = (NoBST*)malloc(sizeof(NoBST));
-    strcpy(novo->valor, valor);
+ArvorePistas* criarArvorePistas(const char* valor){
+    ArvorePistas* novo = (ArvorePistas*)malloc(sizeof(ArvorePistas));
+    strcpy(novo->pista, valor);
     novo->esquerda = NULL;
     novo->direita = NULL;
     return novo;
 }
 
-NoBST* inserirBST(NoBST* raiz, const char* valor){
+ArvorePistas* inserirPista(ArvorePistas* raiz, const char* valor){
     if(raiz == NULL){
-        return criarNoBST(valor);
+        return criarArvorePistas(valor);
     }
-    if(strcmp(valor, raiz->valor) < 0){
-        raiz->esquerda = inserirBST(raiz->esquerda, valor);
+    if(strcmp(valor, raiz->pista) < 0){
+        raiz->esquerda = inserirPista(raiz->esquerda, valor);
     }
     else{
-        raiz->direita = inserirBST(raiz->direita, valor);
+        raiz->direita = inserirPista(raiz->direita, valor);
     }
     return raiz;
 }
 
-bool buscarBST(NoBST* raiz, const char* chave){
+bool buscarBST(ArvorePistas* raiz, const char* chave){
     if(raiz == NULL){
         return false;
     }
-    if(strcmp(chave, raiz->valor) == 0){
+    if(strcmp(chave, raiz->pista) == 0){
         return true;
     }
-    if(strcmp(chave, raiz->valor) < 0){
+    if(strcmp(chave, raiz->pista) < 0){
         return buscarBST(raiz->esquerda, chave);
     }
     else{
@@ -45,35 +45,35 @@ bool buscarBST(NoBST* raiz, const char* chave){
     }
 }
 
-void emOrdemBST(NoBST* raiz){
+void exibirPistas(ArvorePistas* raiz){
     if(raiz != NULL){
-        emOrdemBST(raiz->esquerda);
-        printf("%s ", raiz->valor);
-        emOrdemBST(raiz->direita);
+        exibirPistas(raiz->esquerda);
+        printf("%s ", raiz->pista);
+        exibirPistas(raiz->direita);
     }
 }
 
-void liberarBST(NoBST* raiz){
+void liberarArvoreDePistas(ArvorePistas* raiz){
     if(raiz != NULL){
-        liberarBST(raiz->esquerda);
-        liberarBST(raiz->direita);
+        liberarArvoreDePistas(raiz->esquerda);
+        liberarArvoreDePistas(raiz->direita);
         free(raiz);
     }
 }
 
 int main(){
     printf("\n==== BST ====\n");
-    NoBST* raizBST = NULL;
-    raizBST = inserirBST(raizBST, "Pegadas de Lama");
-    raizBST = inserirBST(raizBST, "Chave perdida");
-    raizBST = inserirBST(raizBST, "Livro com pagina faltando");
-    raizBST = inserirBST(raizBST, "Lencol manchado");
-    raizBST = inserirBST(raizBST, "Gaveta perdida");
+    ArvorePistas* raizBST = NULL;
+    raizBST = inserirPista(raizBST, "Pegadas de Lama");
+    raizBST = inserirPista(raizBST, "Chave perdida");
+    raizBST = inserirPista(raizBST, "Livro com pagina faltando");
+    raizBST = inserirPista(raizBST, "Lencol manchado");
+    raizBST = inserirPista(raizBST, "Gaveta perdida");
 
     printf("Em ordem (BST): ");
-    emOrdemBST(raizBST);
+    exibirPistas(raizBST);
     printf("\nBuscar 'Lencol manchado' (BST): %s\n", buscarBST(raizBST, "Lencol manchado") ? "Encontrado" : "Nao encontrado");
     printf("Buscar 'Oculos' (BST): %s\n", buscarBST(raizBST, "Oculos") ? "Encontrado" : "Nao encontrado");
 
-    liberarBST(raizBST);
+    liberarArvoreDePistas(raizBST);
 }

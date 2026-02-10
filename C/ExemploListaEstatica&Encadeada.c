@@ -15,12 +15,12 @@ void inserirListaEstatica(ListaEstatica *lista, const char* texto);
 void removerListaEstatica(ListaEstatica *lista, const char* texto);
 void listarListaEstatica(const ListaEstatica *lista);
 
-typedef struct No {
+typedef struct Sala {
     char* dado;
-    struct No *proximo;
-} No;
+    struct Sala *proximo;
+} Sala;
 
-typedef No* ListaEncadeada;
+typedef Sala* ListaEncadeada;
 
 void inicializarListaEncadeada(ListaEncadeada *lista);
 void inserirListaEncadeada(ListaEncadeada *lista, const char* texto);
@@ -113,7 +113,7 @@ void inicializarListaEncadeada(ListaEncadeada *lista){
 }
 
 void inserirListaEncadeada(ListaEncadeada *lista, const char* texto){
-    No* novoNo = (No*) malloc(sizeof(No));
+    Sala* novoNo = (Sala*) malloc(sizeof(Sala));
     if(novoNo == NULL){
         printf("Erro: Falha na alocacao de memoria para o no.\n");
         return;
@@ -133,8 +133,8 @@ void inserirListaEncadeada(ListaEncadeada *lista, const char* texto){
 }
 
 void removerListaEncadeada(ListaEncadeada *lista, const char* texto){
-    No *atual = *lista;
-    No *anterior = NULL;
+    Sala *atual = *lista;
+    Sala *anterior = NULL;
     
     while(atual != NULL && strcmp(atual->dado, texto) != 0){
         anterior = atual;
@@ -158,7 +158,7 @@ void removerListaEncadeada(ListaEncadeada *lista, const char* texto){
 }
 
 void listarListaEncadeada(const ListaEncadeada lista){
-    No *temp = lista;
+    Sala *temp = lista;
     if(temp == NULL){
         printf("A lista encadeada esta vazia.\n");
         return;
@@ -172,8 +172,8 @@ void listarListaEncadeada(const ListaEncadeada lista){
 }
 
 void liberarListaEncadeada(ListaEncadeada *lista){
-    No *atual = *lista;
-    No *proximo;
+    Sala *atual = *lista;
+    Sala *proximo;
     
     while(atual != NULL){
         proximo = atual->proximo;

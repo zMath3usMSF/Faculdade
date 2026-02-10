@@ -5,7 +5,7 @@
 
 // Estrutura da Sala
 typedef struct Sala{
-    char valor[50];
+    char nome[50];
     struct Sala* esquerda;
     struct Sala* direita;
 } Sala;
@@ -22,7 +22,7 @@ Sala* criarSala(const char* valor){
     if(novo == NULL){
         printf("Erro ao alocar memoria!\n");
     }
-    strcpy(novo->valor, valor);
+    strcpy(novo->nome, valor);
     novo->esquerda = NULL;
     novo->direita = NULL;
     
@@ -34,7 +34,7 @@ Sala* inserirSala(Sala* raiz, const char* valor){
     if(raiz == NULL){
         return criarSala(valor);
     }
-    if(strcmp(valor, raiz->valor) < 0){
+    if(strcmp(valor, raiz->nome) < 0){
         raiz->esquerda = inserirSala(raiz->esquerda, valor);
     }else{
         raiz->direita = inserirSala(raiz->direita, valor);
@@ -50,7 +50,7 @@ void explorarSalas(Sala* raiz){
         printf("\n===============================================\n");
         printf("             DETECTIVE QUEST - NOVATO            \n");
         printf("=================================================\n");
-        printf("Sala Atual: %s\n\n", raiz->valor);
+        printf("Sala Atual: %s\n\n", raiz->nome);
         printf("1 - Ir para o lado esquerdo\n");
         printf("2 - Ir para o lado direito\n");
         printf("0 - Sair\n");
